@@ -197,7 +197,7 @@ Hecho
 
 ## 12. Resultado del botón Ping mostrando conexión exitosa a MySQL
 
-![Ping a MySQL](capturas/12-ping-exitoso.png)
+![Ping a MySQL](capturas/CapturaPunto12.png)
 
 ## 13. JDBC Resource jdbc/MySQLDS visible en la consola
 ![JDBC Resource](capturas/13-jdbc-resource.png)
