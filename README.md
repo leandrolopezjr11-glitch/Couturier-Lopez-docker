@@ -193,10 +193,12 @@ Hecho
 
 ## 11. Pantalla del Connection Pool MySQLPool creado
 
-![Ping a MySQL](capturas/)
+![Ping a MySQL](capturas/CapturaPunto11.png)
 
 ## 12. Resultado del botón Ping mostrando conexión exitosa a MySQL
+
 ![Ping a MySQL](capturas/12-ping-exitoso.png)
+
 ## 13. JDBC Resource jdbc/MySQLDS visible en la consola
 ![JDBC Resource](capturas/13-jdbc-resource.png)
 
