@@ -161,15 +161,40 @@ rtt min/avg/max/mdev = 0.058/0.065/0.072/0.005 ms
 
 ## 8. Salida de SELECT * FROM usuarios; con los datos del init.sql
 
+mysql> SHOW DATABASE
+    -> ^C
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| appdb              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
 
++----+-----------+-------------------+---------------------+
+| id | nombre    | email             | creado_en           |
++----+-----------+-------------------+---------------------+
+|  1 | Admin     | admin@example.com | 2026-05-07 23:40:23 |
+|  2 | Test User | test@example.com  | 2026-05-07 23:40:23 |
++----+-----------+-------------------+---------------------+
 
 ## **Parte 3 — Payara Admin Console / GUI (5 capturas)**
 ## 9. Pantalla de login de Admin Console en http://localhost:4848
-![Login de Admin Console](capturas/09-payara-login.png)
+
+Loggeado
+
 ## 10. Dashboard principal de Payara tras iniciar sesión
-![Dashboard de Payara](capturas/10-payara-dashboard.png)
+
+Hecho
+
 ## 11. Pantalla del Connection Pool MySQLPool creado
-![Connection Pool MySQLPool](capturas/11-connection-pool.png)
+
+
+
 ## 12. Resultado del botón Ping mostrando conexión exitosa a MySQL
 ![Ping a MySQL](capturas/12-ping-exitoso.png)
 ## 13. JDBC Resource jdbc/MySQLDS visible en la consola
