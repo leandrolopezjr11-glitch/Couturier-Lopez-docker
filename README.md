@@ -141,11 +141,27 @@ PS H:\> docker network inspect java-net
 
 ## **Parte 2 — MySQL (3 capturas)**
 ## 6. Logs de MySQL mostrando: ready for connections
-![Logs de MySQL](capturas/06-mysql-logs.png)
+
+PS H:\> docker exec -it payara-container ping mysql-container -c 4
+PING mysql-container (172.20.0.2) 56(84) bytes of data.
+64 bytes from mysql-container.java-net (172.20.0.2): icmp_seq=1 ttl=64 time=0.058 ms
+64 bytes from mysql-container.java-net (172.20.0.2): icmp_seq=2 ttl=64 time=0.068 ms
+64 bytes from mysql-container.java-net (172.20.0.2): icmp_seq=3 ttl=64 time=0.072 ms
+64 bytes from mysql-container.java-net (172.20.0.2): icmp_seq=4 ttl=64 time=0.064 ms
+
+--- mysql-container ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3070ms
+rtt min/avg/max/mdev = 0.058/0.065/0.072/0.005 ms
+
+
 ## 7. Salida de SHOW DATABASES; mostrando la base appdb
-![Bases de datos](capturas/07-mysql-databases.png)
+
+2026-05-07T22:22:38.948887Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2026-05-07T22:22:38.949095Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.46'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+
 ## 8. Salida de SELECT * FROM usuarios; con los datos del init.sql
-![Datos de usuarios](08-mysql-tabla.png)
+
+
 
 ## **Parte 3 — Payara Admin Console / GUI (5 capturas)**
 ## 9. Pantalla de login de Admin Console en http://localhost:4848
