@@ -71,10 +71,73 @@ PS H:\> docker volume inspect mysql-data
 
 ## 4. Salida de docker ps con ambos contenedores activos
 
-
+PS H:\> docker ps
+CONTAINER ID   IMAGE                         COMMAND                  CREATED              STATUS              PORTS                                                                                                                                   NAMES
+e5454cb28af8   payara/server-full:6.2024.6   "tini -- /bin/sh -c …"   About a minute ago   Up About a minute   0.0.0.0:4848->4848/tcp, [::]:4848->4848/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp, 0.0.0.0:9009->9009/tcp, [::]:9009->9009/tcp   payara-container
+ff77d41d21f1   mysql:8.0                     "docker-entrypoint.s…"   10 minutes ago       Up 10 minutes       0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp                                                                                             mysql-container
 
 ## 5. docker network inspect java-net con ambos contenedores en la red
-![Inspección de red](capturas/05-network-inspect.png)
+
+PS H:\> docker network inspect java-net
+[
+    {
+        "Name": "java-net",
+        "Id": "f2ef155ab6faa9de892069a743fab02d14007a09cb29432a5f71b81cc17f130a",
+        "Created": "2026-05-07T22:07:57.679851004Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.20.0.0/16",
+                    "Gateway": "172.20.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {
+            "com.docker.network.enable_ipv4": "true",
+            "com.docker.network.enable_ipv6": "false"
+        },
+        "Labels": {},
+        "Containers": {
+            "e5454cb28af8dbf7ec382c228c49e7d53d11083f01fe8726b3950b902928413c": {
+                "Name": "payara-container",
+                "EndpointID": "8565794b4d8ad10d2826b826f2a59805a5291dd45800b0e0a7ac56e1ba12029d",
+                "MacAddress": "7e:74:7d:c9:65:3c",
+                "IPv4Address": "172.20.0.3/16",
+                "IPv6Address": ""
+            },
+            "ff77d41d21f1046faa6673816c6926546c3c7d561257776a91e4b336bd05ccac": {
+                "Name": "mysql-container",
+                "EndpointID": "6d833e984268666fddfa8cfdcd32ccc9c1963548032aa2a6197949cac4c9d340",
+                "MacAddress": "b6:6d:93:ec:d0:58",
+                "IPv4Address": "172.20.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.20.0.0/16": {
+                        "IPsInUse": 5,
+                        "DynamicIPsAvailable": 65531
+                    }
+                }
+            }
+        }
+    }
+]
 
 ## **Parte 2 — MySQL (3 capturas)**
 ## 6. Logs de MySQL mostrando: ready for connections
